@@ -1,25 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import Chat from './components/Chat';
+import MessageHistory from "./components/MessageHistory";
+import Render from './components/Render';
 
 function App() {
-  const temp = "<h1>hello</h1>";
+  const [html, setHtml] = useState("<div>Nothing to render yet!</div>");
+  const [messageHistory, setMessageHistory] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div dangerouslySetInnerHTML={{ __html: String(temp) }} />
-      </header>
+    <div>
+      <Chat setMessageHistory={setMessageHistory} setHtml={setHtml}/>
+      <MessageHistory messageHistory={messageHistory}/>
+      <Render htmlContent={html}/>
     </div>
   );
 }
