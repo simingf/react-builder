@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const temp = "<h1>hello</h1>";
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <div dangerouslySetInnerHTML={{ __html: String(temp) }} />
       </header>
     </div>
   );
